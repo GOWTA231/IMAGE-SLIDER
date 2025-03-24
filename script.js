@@ -13,7 +13,6 @@ let currentIndex = 0;
 const slidesContainer = document.querySelector('.slides');
 const dotsContainer = document.querySelector('.dots-container');
 
-// Create slides
 images.forEach((src, index) => {
     const slide = document.createElement('div');
     slide.className = `slide ${index === 0 ? 'active' : ''}`;
@@ -25,7 +24,6 @@ images.forEach((src, index) => {
     slide.appendChild(img);
     slidesContainer.appendChild(slide);
 
-    // Create dot
     const dot = document.createElement('button');
     dot.className = `dot ${index === 0 ? 'active' : ''}`;
     dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
@@ -58,11 +56,9 @@ function goToNext() {
     updateSlides();
 }
 
-// Add click event listeners
 document.querySelector('.prev').addEventListener('click', goToPrevious);
 document.querySelector('.next').addEventListener('click', goToNext);
 
-// Add keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') goToPrevious();
     if (e.key === 'ArrowRight') goToNext();
